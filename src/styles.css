@@ -1,0 +1,193 @@
+/* ========================= */
+/* GLOBAL STYLES */
+/* ========================= */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ========================= */
+/* HOME PAGE */
+/* ========================= */
+
+.home-container {
+  width: 100%;
+}
+
+/* HERO SECTION */
+
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  color: white;
+  padding: 20px;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.primary-btn {
+  padding: 12px 25px;
+  background-color: white;
+  color: #4f46e5;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  background-color: #e0e7ff;
+}
+
+.secondary-btn {
+  padding: 12px 25px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.secondary-btn:hover {
+  background-color: white;
+  color: #4f46e5;
+}
+
+/* FEATURES SECTION */
+
+.features-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #f8fafc;
+}
+
+.features-section h2 {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  width: 260px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.feature-card h3 {
+  margin-bottom: 15px;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+/* ========================= */
+/* SIGNUP PAGE */
+/* ========================= */
+
+.signup-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f6e6d7, #e0d4ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 900px;
+  padding: 40px;
+}
+
+.signup-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-row label {
+  width: 150px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 18px;
+  border-radius: 15px;
+  border: none;
+  background-color: #a8a6d6;
+  font-size: 18px;
+  outline: none;
+}
+
+.form-row input:focus {
+  background-color: #9b99cf;
+}
+
+.create-btn {
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 50px;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(90deg, #7ed6df, #a29bfe);
+  transition: 0.3s ease;
+}
+
+.create-btn:hover {
+  transform: scale(1.05);
+}

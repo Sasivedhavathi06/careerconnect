@@ -1,0 +1,101 @@
+/* Main Wrapper */
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  background-color: #f4efe6;
+  font-family: Arial, sans-serif;
+}
+
+/* Left Section */
+.login-left {
+  flex: 1;
+  background-color: #f4efe6;
+}
+
+/* Right Section */
+.login-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+.login-right h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Role Selection */
+.role-selector {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.role-selector button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  background-color: #c9dbe8;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.role-selector button:hover {
+  background-color: #b0cfe3;
+}
+
+.role-selector button.active {
+  background-color: #7da6c2;
+  color: white;
+}
+
+/* Form Styling */
+.login-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input {
+  padding: 12px;
+  border-radius: 15px;
+  border: none;
+  background-color: #7da6c2;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #e0e0e0;
+}
+
+/* Login Button */
+.login-btn {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+  background-color: #7da6c2;
+  font-size: 18px;
+  cursor: pointer;
+  width: 60%;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #5f8fae;
+}

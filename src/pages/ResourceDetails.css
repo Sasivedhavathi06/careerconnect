@@ -1,0 +1,19 @@
+.details-page {
+  padding: 40px;
+  min-height: 100vh;
+  background: linear-gradient(to right, #dfe9f3, #ffffff);
+}
+
+.details-page h1 {
+  margin-bottom: 20px;
+}
+
+.details-page button {
+  margin-top: 20px;
+  padding: 8px 15px;
+  border: none;
+  background-color: #4b6cb7;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
