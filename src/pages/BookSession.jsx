@@ -10,6 +10,7 @@ function BookSession() {
 
   const [message, setMessage] = useState("");
   const [showQuiz, setShowQuiz] = useState(false);
+  const [lastBooking, setLastBooking] = useState(null);
 
   const navigate = useNavigate();
 
@@ -28,6 +29,17 @@ function BookSession() {
     const existingSessions =
       JSON.parse(localStorage.getItem("sessions")) || [];
 
+    // ✅ Prevent Double Booking
+    const alreadyBooked = existingSessions.find(
+      (session) =>
+        session.date === form.date && session.time === form.time
+    );
+
+    if (alreadyBooked) {
+      setMessage("This slot is already booked. Please choose another.");
+      return;
+    }
+
     const newSession = {
       id: Date.now(),
       name: form.name,
@@ -40,9 +52,17 @@ function BookSession() {
 
     localStorage.setItem("sessions", JSON.stringify(updatedSessions));
 
+    setLastBooking(newSession);
     setMessage("Session booked successfully!");
-    setShowQuiz(true);   // ✅ NEW
+    setShowQuiz(true);
     setForm({ name: "", date: "", time: "" });
+  };
+
+  const handleCancelAll = () => {
+    localStorage.removeItem("sessions");
+    setMessage("All sessions cancelled.");
+    setShowQuiz(false);
+    setLastBooking(null);
   };
 
   return (
@@ -76,13 +96,18 @@ function BookSession() {
 
           <div style={styles.inputGroup}>
             <label>Select Time</label>
-            <input
-              type="time"
+            <select
               name="time"
               value={form.time}
               onChange={handleChange}
               style={styles.input}
-            />
+            >
+              <option value="">Select Time</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="2:00 PM">2:00 PM</option>
+              <option value="4:00 PM">4:00 PM</option>
+            </select>
           </div>
 
           <button type="submit" style={styles.button}>
@@ -92,7 +117,27 @@ function BookSession() {
           {message && <p style={styles.message}>{message}</p>}
         </form>
 
-        {/* ✅ NEW QUIZ SECTION */}
+        {/* ✅ Booking Summary */}
+        {lastBooking && message === "Session booked successfully!" && (
+          <div style={styles.summary}>
+            <h4>Booking Details</h4>
+            <p><strong>Name:</strong> {lastBooking.name}</p>
+            <p><strong>Date:</strong> {lastBooking.date}</p>
+            <p><strong>Time:</strong> {lastBooking.time}</p>
+          </div>
+        )}
+
+        {/* ✅ Cancel All Bookings */}
+        {lastBooking && (
+          <button
+            onClick={handleCancelAll}
+            style={{ ...styles.cancelButton }}
+          >
+            Cancel All Bookings
+          </button>
+        )}
+
+        {/* ✅ Quiz Button */}
         {showQuiz && (
           <div style={{ marginTop: "20px", textAlign: "center" }}>
             <button
@@ -119,7 +164,7 @@ const styles = {
   card: {
     background: "#fff",
     padding: "40px",
-    borderRadius: "10px",
+    borderRadius: "12px",
     width: "350px",
     boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
   },
@@ -139,13 +184,13 @@ const styles = {
   },
   input: {
     padding: "10px",
-    borderRadius: "5px",
+    borderRadius: "6px",
     border: "1px solid #ccc",
     marginTop: "5px",
   },
   button: {
     padding: "12px",
-    borderRadius: "5px",
+    borderRadius: "6px",
     border: "none",
     backgroundColor: "#667eea",
     color: "#fff",
@@ -159,9 +204,26 @@ const styles = {
     color: "green",
     fontWeight: "bold",
   },
+  summary: {
+    marginTop: "15px",
+    padding: "10px",
+    backgroundColor: "#f0f4ff",
+    borderRadius: "6px",
+  },
+  cancelButton: {
+    marginTop: "10px",
+    padding: "10px",
+    borderRadius: "6px",
+    border: "none",
+    backgroundColor: "red",
+    color: "#fff",
+    fontWeight: "bold",
+    cursor: "pointer",
+    width: "100%",
+  },
   quizButton: {
     padding: "10px 20px",
-    borderRadius: "5px",
+    borderRadius: "6px",
     border: "none",
     backgroundColor: "green",
     color: "#fff",
