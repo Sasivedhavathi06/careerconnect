@@ -6,7 +6,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 // Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Logout from "./pages/Logout"; // ✅ ADDED
+import Logout from "./pages/Logout";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import CounsellorDashboard from "./pages/CounsellorDashboard";
@@ -21,6 +21,10 @@ import Performance from "./pages/Performance";
 // New Pages
 import CareerQuiz from "./pages/CareerQuiz";
 import Feedback from "./pages/Feedback";
+
+// ✅ Newly Added Features
+import CareerRoadmap from "./pages/CareerRoadmap";
+import ResumeAnalyzer from "./pages/ResumeAnalyzer";
 
 // Auth Pages
 import Login from "./pages/auth/Login";
@@ -39,7 +43,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
-          {/* ✅ Logout Route (Protected) */}
+          {/* Logout Route (Protected) */}
           <Route
             path="/logout"
             element={
@@ -136,6 +140,25 @@ function App() {
             element={
               <ProtectedRoute role="user">
                 <Feedback />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* ✅ NEW FEATURE ROUTES */}
+          <Route
+            path="/roadmap"
+            element={
+              <ProtectedRoute role="user">
+                <CareerRoadmap />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/resume-analyzer"
+            element={
+              <ProtectedRoute role="user">
+                <ResumeAnalyzer />
               </ProtectedRoute>
             }
           />

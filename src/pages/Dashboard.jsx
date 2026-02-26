@@ -33,6 +33,17 @@ function Dashboard() {
         <div className="card" onClick={() => navigate("/performance")}>
           Performance
         </div>
+
+        {/* ✅ NEWLY ADDED FEATURES */}
+
+        <div className="card" onClick={() => navigate("/roadmap")}>
+          Career Builder
+        </div>
+
+        <div className="card" onClick={() => navigate("/resume-analyzer")}>
+          Resume Checker
+        </div>
+
       </div>
     </div>
   );
